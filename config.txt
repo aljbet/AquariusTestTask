@@ -1,0 +1,9 @@
+﻿#1
+#mode: dir
+#path: ./example_files
+#action: string
+
+#2
+#mode: files
+#path: ./example_files/lukomorie.txt, ./example_files/winter_morning.txt
+#action: string
