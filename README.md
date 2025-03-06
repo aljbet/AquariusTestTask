@@ -52,7 +52,8 @@
   "configurationID": "3",
   "configurationData": {
     "mode": "dir",
-    "path": "/home/robot/filesToParse"
+    "path": "/home/robot/filesToParse",
+    "action": "string"
   },
   "out": {
     "1": {
