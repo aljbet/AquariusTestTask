@@ -7,3 +7,23 @@
 #mode: files
 #path: ./example_files/lukomorie.txt, ./example_files/winter_morning.txt
 #action: string
+
+#3
+#mode: dir
+#path: ./example_files
+#action: count
+
+#4
+#mode: files
+#path: ./example_files/lukomorie.txt, ./example_files/rnj.txt
+#action: count
+
+#5
+#mode: dir
+#path: ./example_files
+#action: replace
+
+#6
+#mode: files
+#path: ./example_files/winter_morning.txt, ./example_files/rnj.txt
+#action: replace

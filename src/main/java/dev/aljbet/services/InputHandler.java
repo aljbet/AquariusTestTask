@@ -1,6 +1,7 @@
 package dev.aljbet.services;
 
 import dev.aljbet.models.*;
+
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -37,6 +38,18 @@ public class InputHandler {
         for (int i = 0; i < ConfigConstants.K_LINES; i++) {
             handleConfigLine(reader.readLine(), config);
         }
+        if (config.getMode() == null) {
+            throw new InvalidConfigFormatException(
+                    "Mode was not specified for configuration #" + id);
+        }
+        if (config.getPaths() == null || config.getPaths().isEmpty()) {
+            throw new InvalidConfigFormatException(
+                    "Path was not specified for configuration #" + id);
+        }
+        if (config.getAction() == null) {
+            throw new InvalidConfigFormatException(
+                    "Action was not specified for configuration #" + id);
+        }
         reader.close();
         return config;
     }
@@ -44,17 +57,19 @@ public class InputHandler {
     public void handleConfigLine(String line, Configuration config) {
         var keyValue = line.split(":");
         if (keyValue.length != 2) {
-            throw new InvalidConfigFormatException("Key and value should be separated by ':' symbol");
+            throw new InvalidConfigFormatException(
+                    "Key and value should be separated by ':' symbol");
         }
         switch (keyValue[0]) {
             case ConfigConstants.MODE:
-                config.setMode(ConfigConstants.getModeFromString(keyValue[1]));
+                config.setMode(Mapper.getModeFromString(keyValue[1]));
                 break;
             case ConfigConstants.PATH:
-                config.setPaths(Arrays.stream(keyValue[1].split(",")).map(String::strip).toList());
+                config.setPaths(Arrays.stream(keyValue[1].split(","))
+                                        .map(String::strip).toList());
                 break;
             case ConfigConstants.ACTION:
-                config.setAction(ConfigConstants.getActionFromString(keyValue[1]));
+                config.setAction(Mapper.getActionFromString(keyValue[1]));
                 break;
             default:
                 throw new InvalidConfigFormatException("Unknown key: " + keyValue[0]);
