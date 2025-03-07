@@ -2,6 +2,7 @@ package dev.aljbet.services;
 
 import dev.aljbet.models.Configuration;
 import org.json.JSONObject;
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.nio.file.Files;

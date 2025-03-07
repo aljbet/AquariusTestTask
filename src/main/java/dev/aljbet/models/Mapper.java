@@ -1,9 +1,6 @@
 package dev.aljbet.models;
 
-import dev.aljbet.services.linehandlers.CountLineHandler;
-import dev.aljbet.services.linehandlers.ILineHandler;
-import dev.aljbet.services.linehandlers.ReplaceLineHandler;
-import dev.aljbet.services.linehandlers.StringLineHandler;
+import dev.aljbet.services.linehandlers.*;
 
 public class Mapper {
     public static Mode getModeFromString(String mode) {

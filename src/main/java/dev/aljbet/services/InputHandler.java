@@ -1,6 +1,7 @@
 package dev.aljbet.services;
 
 import dev.aljbet.models.*;
+
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -9,8 +10,8 @@ import java.util.Arrays;
 
 public class InputHandler {
     /**
-     * Проверяет валидность ссылки, и если все ок, то
-     * проходит по файлу, находит нужный номер, возвращает рекорд Configuration
+     * Проверяет валидность ссылки, и если все ок, то проходит по файлу,
+     * находит нужный номер, собирает данные из него в Configuration
      *
      * @param pathToFile путь к конфиг-файлу
      * @param id         порядковый номер конфигурации
@@ -20,7 +21,7 @@ public class InputHandler {
     public Configuration handle(String pathToFile, int id) throws Exception {
         var path = Path.of(pathToFile);
         if (!Files.exists(path)) {
-            throw new FileNotFoundException(path.toString());
+            throw new InvalidConfigFormatException("Path " + path + " with config does not exist");
         }
 
         BufferedReader reader = new BufferedReader(

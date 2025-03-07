@@ -6,7 +6,6 @@ package dev.aljbet.services;
  * чтобы было проще добавить новый по необходимости.
  */
 public class ConfigHandler {
-    //TODO: надо подумать, какие у этих хендлеров могут быть поля
     InputHandler inputHandler = new InputHandler();
     FilesHandler fileHandler = new FilesHandler();
     JsonFormatter jsonFormatter = new JsonFormatter();
