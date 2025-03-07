@@ -19,10 +19,6 @@ public class ConfigHandler {
     public String handle(String pathToConfig, int id) throws Exception {
         var config = inputHandler.handle(pathToConfig, id);
         var linksFromFiles = fileHandler.handle(config);
-        System.out.println(linksFromFiles);
-
-        // передаем этот массив строк и данные о конфиге, полученные раньше, в JsonHandler.
-        // он форматирует, засовывает все в файл, путь к которому возвращается. done
         return jsonFormatter.format(config, linksFromFiles);
     }
 }

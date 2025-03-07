@@ -1,7 +1,6 @@
 package dev.aljbet.services;
 
 import dev.aljbet.models.*;
-
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -33,7 +32,7 @@ public class InputHandler {
             }
         }
         var config = new Configuration();
-        config.setFileName(pathToFile);
+        config.setFile(path.toFile());
         config.setId(id);
         for (int i = 0; i < ConfigConstants.K_LINES; i++) {
             handleConfigLine(reader.readLine(), config);

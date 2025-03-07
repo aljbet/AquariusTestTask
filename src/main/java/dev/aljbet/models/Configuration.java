@@ -1,11 +1,12 @@
 package dev.aljbet.models;
 
 import lombok.Data;
+import java.io.File;
 import java.util.List;
 
 @Data
 public class Configuration {
-    String fileName;
+    File file;
     int id;
     Mode mode;
     List<String> paths;
