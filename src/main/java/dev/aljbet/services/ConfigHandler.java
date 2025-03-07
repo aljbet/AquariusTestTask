@@ -1,8 +1,4 @@
-package dev.aljbet;
-
-import dev.aljbet.services.FilesHandler;
-import dev.aljbet.services.InputHandler;
-import dev.aljbet.services.JsonFormatter;
+package dev.aljbet.services;
 
 /**
  * Основной сервис, отвечающий за логику,
@@ -19,10 +15,7 @@ public class ConfigHandler {
      * @param id порядковый номер конфигурации
      * @return путь к json-файлу с результатом
      */
-    public String handle(String pathToConfig, int id) {
-        // передает эти самые параметры в обработчик, который проверяет валидность ссылки,
-        // может бросить исключение, а если все ок, то
-        // проходит по файлу, находит нужный ид, возвращает рекорд Configuration
+    public String handle(String pathToConfig, int id) throws Exception {
         var config = inputHandler.handle(pathToConfig, id);
 
         // этот рекорд передается следующему обработчику, который читает поля,
